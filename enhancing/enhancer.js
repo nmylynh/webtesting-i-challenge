@@ -21,8 +21,8 @@ function fail(item) {
   let newItem = item;
 
   newItem.enhancement < 15
-  ? newItem.durability = newItem.durability - 5
-  : newItem.durability = newItem.durability - 10
+  ? newItem.durability -= 5
+  : newItem.durability -= 10
 
   newItem.enhancement > 16
   ? newItem.enhancement--
