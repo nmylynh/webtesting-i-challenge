@@ -54,3 +54,21 @@ And in your calculator:
 
 The technique should be arrange, act, assert.
 
+    describe('the succeed function', () => {
+    it('should upgrade the enhancement level', () => {
+
+        //arrange
+        const item = {
+            name: 'Lunar Sword',
+            enhancement: 17,
+            durability: 90 
+        }
+        
+        //act
+        const result = succeed(item);
+
+        //assert
+        expect(result.enhancement).toBe(18);
+    })
+})
+
