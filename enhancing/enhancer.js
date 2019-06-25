@@ -11,7 +11,7 @@ function succeed(item) {
 
   newItem.enhancement < 20
   ? newItem.enhancement++
-  : item.enhancement
+  : newItem
 
   return newItem
 }
