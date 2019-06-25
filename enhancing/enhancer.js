@@ -2,21 +2,52 @@ module.exports = {
   succeed,
   fail,
   repair,
-  get,
+  get
 };
 
 function succeed(item) {
-  return { ...item };
+
+  let newItem = item;
+
+  newItem.enhancement < 20
+  ? newItem.enhancement++
+  : newItem
+
+  return newItem
 }
 
 function fail(item) {
-  return { ...item };
+
+  let newItem = item;
+
+  newItem.enhancement < 15
+  ? newItem.durability -= 5
+  : newItem.durability -= 10
+
+  newItem.enhancement > 16
+  ? newItem.enhancement--
+  : newItem.enhancement
+
+  return newItem
 }
 
 function repair(item) {
-  return { ...item };
+
+  newItem = item;
+
+  newItem.durability = 100;
+
+  return newItem
+
 }
 
 function get(item) {
-  return { ...item };
+
+  newItem = item;
+
+  newItem.enhancement > 0
+  ? newItem.name = `${newItem.name} [+${newItem.enhancement}]`
+  : newItem
+  
+  return newItem
 }
