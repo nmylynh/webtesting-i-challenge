@@ -2,56 +2,51 @@ module.exports = {
   succeed,
   fail,
   repair,
-  get,
+  get
 };
 
 function succeed(item) {
-  return { ...item, 
-    enhancement: upgradeELvl(item.enhancement)
-  };
+
+  let newItem = item;
+
+  newItem.enhancement < 20
+  ? newItem.enhancement++
+  : item.enhancement
+
+  return newItem
 }
 
 function fail(item) {
-  return { ...item, 
-    enhancement: downgradeELvl(item.enhancement), 
-    durability: ferghus(item) 
-  };
+  let newItem = item;
+
+  newItem.enhancement < 15
+  ? newItem.durability = newItem.durability - 5
+  : newItem.durability = newItem.durability - 10
+
+  newItem.enhancement > 16
+  ? newItem.enhancement--
+  : newItem.enhancement
+
+  return newItem
 }
 
 function repair(item) {
-  return { ...item, 
-    durability: 100 
-  };
+
+  newItem = item;
+
+  newItem.durability = 100;
+
+  return newItem
+
 }
 
 function get(item) {
-  return { ...item,
-    name: showELvl(item) 
-  };
-}
 
-//helpers
+  newItem = item;
 
-function upgradeELvl(enhancement) {
-  enhancement < 20
-  ? enhancement + 1
-  : enhancement
-}
-
-function ferghus(item) {
-  item.enhancement < 15
-  ? item.durability - 5
-  : item.durability - 10
-}
-
-function downgradeELvl(enhancement) {
-  enhancement > 16
-  ? enhancement - 1
-  : enhancement
-}
-
-function showELvl(item){
-  item.enhancement > 0
-  ? `${item.name} [+${item.enhancement}]`
-  : item.name
+  newItem.enhancement > 0
+  ? newItem.name = `${newItem.name} [+${newItem.enhancement}]`
+  : newItem
+  
+  return newItem
 }
