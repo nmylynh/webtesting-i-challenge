@@ -17,6 +17,7 @@ function succeed(item) {
 }
 
 function fail(item) {
+
   let newItem = item;
 
   newItem.enhancement < 15
