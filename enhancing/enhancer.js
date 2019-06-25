@@ -21,7 +21,7 @@ function get(item) {
   return { ...item };
 }
 
-function checkLevel () {
+function checkLevel (enhancement) {
   enhancement < 20
   ? enhancement + 1
   : enhancement
